@@ -1,25 +1,14 @@
+# syn_erp_15/hooks.py
+from . import __version__ as app_version
+
 app_name = "syn_erp_15"
 app_title = "syn_erp_15"
 app_publisher = "syn_erp_15"
-app_description = "syn_erp_15"
+app_description = "Two-way sync between Godown and Shops"
+app_icon = "octicon octicon-sync"
+app_color = "grey"
 app_email = "shuhain@gmail.com"
-app_license = "mit"
-
-# Include app in Desk sidebar
-# Each item in add_to_apps_screen will appear in the Apps page
-add_to_apps_screen = [
-    {
-        "name": "syn_erp_15",
-        "logo": "/assets/syn_erp_15/logo.png",
-        "title": "Sync ERP",
-        "route": "/sync-dashboard",
-        "has_permission": "syn_erp_15.api.permission.has_app_permission"
-    }
-]
-
-# Include custom JS/CSS in Desk
-app_include_css = "/assets/syn_erp_15/css/sync_erp_15.css"
-app_include_js = "/assets/syn_erp_15/js/sync_erp_15.js"
+app_license = "MIT"
 
 # Document Events: hook into specific doctype submissions
 doc_events = {
