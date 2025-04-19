@@ -1,4 +1,4 @@
-# syn_erp_15/config/desktop.py
+# apps/syn_erp_15/syn_erp_15/config/desktop.py
 from frappe import _
 
 def get_data():

@@ -1,0 +1,17 @@
+{
+    "doctype": "DocType",
+    "name": "Sync Settings",
+    "module": "syn_erp_15",
+    "custom": true,
+    "fields": [
+      {"fieldname":"site_name","fieldtype":"Data","label":"Site Name","reqd":1},
+      {"fieldname":"base_url","fieldtype":"Data","label":"Base URL","reqd":1},
+      {"fieldname":"api_key","fieldtype":"Password","label":"API Key","reqd":1},
+      {"fieldname":"api_secret","fieldtype":"Password","label":"API Secret","reqd":1},
+      {"fieldname":"last_sync","fieldtype":"Datetime","label":"Last Sync"},
+      {"fieldname":"active","fieldtype":"Check","label":"Active"}
+    ],
+    "permissions": [
+      {"role": "System Manager", "permlevel": 0, "read": 1, "write": 1, "create": 1}
+    ]
+  }

@@ -20,19 +20,6 @@ doc_events = {
     }
 }
 
-# Scheduler Tasks: cron-triggered sync routines
-scheduler_events = {
-    "cron": [
-        {"cron": "*/5 * * * *", "method": "syn_erp_15.sync.perform_sales_sync"},
-        {"cron": "0 * * * *",   "method": "syn_erp_15.sync.perform_stock_distribution"}
-    ],
-    "daily": [
-        "syn_erp_15.reports.generate_daily_reconciliation"
-    ],
-    "weekly": [
-        "syn_erp_15.sync.purge_old_logs"
-    ]
-}
 
 # Apps
 # ------------------
