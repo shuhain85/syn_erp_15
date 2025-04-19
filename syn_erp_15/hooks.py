@@ -5,6 +5,46 @@ app_description = "syn_erp_15"
 app_email = "shuhain@gmail.com"
 app_license = "mit"
 
+# Include app in Desk sidebar
+# Each item in add_to_apps_screen will appear in the Apps page
+add_to_apps_screen = [
+    {
+        "name": "syn_erp_15",
+        "logo": "/assets/syn_erp_15/logo.png",
+        "title": "Sync ERP",
+        "route": "/sync-dashboard",
+        "has_permission": "syn_erp_15.api.permission.has_app_permission"
+    }
+]
+
+# Include custom JS/CSS in Desk
+app_include_css = "/assets/syn_erp_15/css/sync_erp_15.css"
+app_include_js = "/assets/syn_erp_15/js/sync_erp_15.js"
+
+# Document Events: hook into specific doctype submissions
+doc_events = {
+    "Sales Invoice": {
+        "on_submit": "syn_erp_15.sync.enqueue_sales_invoice"
+    },
+    "Stock Entry": {
+        "on_submit": "syn_erp_15.sync.enqueue_stock_entry"
+    }
+}
+
+# Scheduler Tasks: cron-triggered sync routines
+scheduler_events = {
+    "cron": [
+        {"cron": "*/5 * * * *", "method": "syn_erp_15.sync.perform_sales_sync"},
+        {"cron": "0 * * * *",   "method": "syn_erp_15.sync.perform_stock_distribution"}
+    ],
+    "daily": [
+        "syn_erp_15.reports.generate_daily_reconciliation"
+    ],
+    "weekly": [
+        "syn_erp_15.sync.purge_old_logs"
+    ]
+}
+
 # Apps
 # ------------------
 
